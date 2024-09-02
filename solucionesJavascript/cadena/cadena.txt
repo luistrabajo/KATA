@@ -1,0 +1,89 @@
+
+FUNCION extraerPrimerDigito(cadena)
+    PARA i DESDE 0 HASTA longitud(cadena) - 1 HACER
+        SI cadena[i] ES UN DIGITO
+            RETORNAR cadena[i]
+        FIN SI
+    FIN PARA
+    RETORNAR "No se encontró ningún dígito"  // En caso de que no haya ningún dígito en la cadena
+FIN FUNCION
+
+
+Explicación:
+Entrada: Una cadena de caracteres cadena.
+Recorrido: Se recorre la cadena carácter por carácter.
+Verificación: Si el carácter actual es un dígito, se retorna ese carácter como el primer dígito encontrado.
+Resultado: Si no se encuentra ningún dígito, se retorna un mensaje indicando que no se encontró ningún dígito.
+
+Javascript
+
+function extraerPrimerDigito(cadena) {
+    for (let i = 0; i < cadena.length; i++) {
+        if (!isNaN(cadena[i]) && cadena[i] !== ' ') {
+            return cadena[i];
+        }
+    }
+    return "No se encontró ningún dígito";
+}
+
+// Ejemplo de uso
+let cadena = "c20ad4d76fe97759aa27a0c99bff6710";
+let primerDigito = extraerPrimerDigito(cadena);
+console.log(primerDigito);  // Imprime "2"
+
+
+
+
+
+public class ExtractorDigitos {
+
+    public static char extraerPrimerDigito(String cadena) {
+        for (int i = 0; i < cadena.length(); i++) {
+            char caracter = cadena.charAt(i);
+            if (Character.isDigit(caracter)) {
+                return caracter;
+            }
+        }
+        return '0'; // Puedes retornar cualquier otro carácter o una excepción si prefieres
+    }
+
+    public static void main(String[] args) {
+        String cadena = "Hola123mundo";
+        char primerDigito = extraerPrimerDigito(cadena);
+        if (primerDigito == '0') {
+            System.out.println("No se encontró ningún dígito");
+        } else {
+            System.out.println("El primer dígito es: " + primerDigito);
+        }
+    }
+}
+
+
+Explicación del código Java:
+
+Método extraerPrimerDigito:
+
+Parámetro: Recibe una cadena de texto como entrada.
+Iteración: Recorre cada carácter de la cadena utilizando un bucle for.
+Verificación: Utiliza Character.isDigit para comprobar si el carácter actual es un dígito.
+Retorno: Si encuentra un dígito, lo devuelve inmediatamente. Si llega al final del bucle sin encontrar ningún dígito, retorna un carácter arbitrario (en este caso, '0'). Puedes personalizar este valor de retorno según tus necesidades.
+Método main:
+
+Ejemplo de uso: Demuestra cómo utilizar el método extraerPrimerDigito con una cadena de ejemplo.
+Condición: Verifica si el carácter retornado es '0' (o el valor que hayas elegido) para determinar si se encontró un dígito.
+Salida: Imprime el resultado por consola.
+Consideraciones adicionales:
+
+Retorno de excepción: En lugar de retornar un carácter arbitrario para indicar que no se encontró ningún dígito, podrías lanzar una excepción personalizada (por ejemplo, DigitNotFoundException). Esto te permitiría manejar el error de manera más específica en el código que llama al método.
+Regular expresiones: Para una solución más concisa y potencialmente más eficiente, podrías utilizar expresiones regulares para buscar el primer dígito en la cadena.
+Otras funciones de Character: La clase Character ofrece otras funciones útiles para trabajar con caracteres, como isLetter, isUpperCase, isLowerCase, etc.
+Adaptación:
+
+Puedes adaptar este código a tus necesidades específicas, por ejemplo:
+
+Buscar el último dígito: Modifica el bucle para recorrer la cadena en sentido inverso.
+Contar la cantidad de dígitos: Utiliza un contador para llevar la cuenta de los dígitos encontrados.
+Extraer todos los dígitos: Almacena los dígitos encontrados en una lista o array.
+En resumen:
+
+Este código Java proporciona una solución clara y concisa para extraer el primer dígito de una cadena. Puedes personalizarlo y extenderlo para realizar tareas más complejas relacionadas con el procesamiento de texto.
